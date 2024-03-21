@@ -1,13 +1,32 @@
 .main {
   background-color: white;
   min-height: 100vh;
-  text-align: center;
+  text-align: flex-start;
+  padding-left: 23px;
 }
 
-.title {
+.titleForm {
   color: black;
   padding-top: 43px;
   padding-bottom: 43px;
+  text-align: center;
+}
+
+.titleComponent {
+  padding-top: 33px;
+  color : black;
+  display: flex;
+}
+
+.titleLetter {
+  color: black;
+  padding-right: 23px;
+}
+
+.bodyComponent {
+  margin-left: 42px;
+  color: black;
+  
 }
 
 .formulario {
@@ -24,4 +43,20 @@
   border: 1px;
   border-color: black;
   padding: 123px;
+}
+
+.remuneration {
+  margin-left: 42px;
+  margin-right: 42px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  margin-left: 42px;
+  height: 123px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
