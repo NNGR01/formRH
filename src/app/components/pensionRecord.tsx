@@ -18,9 +18,9 @@ const PensionRecord = () => {
                 Nombre AFP
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
+                id="nombre_afp"
                 aria-describedby="name"
 
               />
@@ -30,9 +30,9 @@ const PensionRecord = () => {
                 Sistema de Salud
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
+                id="nombre_salud"
                 aria-describedby="name"
 
               />

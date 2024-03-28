@@ -16,10 +16,10 @@ const Remuneration = () => {
                 Líquido Pactado
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
-                aria-describedby="name"
+                id="liquido_pactado"
+                aria-describedby="liquidoPactado"
               />
             </div>
             <div className="mb-3">
@@ -27,10 +27,10 @@ const Remuneration = () => {
                 Bono Colación
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
-                aria-describedby="name"
+                id="bono_colacion"
+                aria-describedby="bonoColacion"
               />
             </div>
 
@@ -39,10 +39,10 @@ const Remuneration = () => {
                 Bono Movilización
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
-                aria-describedby="name"
+                id="bono_movilizacion"
+                aria-describedby="bonoMovilizacion"
               />
             </div>
 
@@ -51,10 +51,10 @@ const Remuneration = () => {
                 Otros Bonos
               </label>
               <input
-                type="name"
+                type="text"
                 className="form-control"
-                id="name"
-                aria-describedby="name"
+                id="otros_bonos"
+                aria-describedby="otrosBonos"
               />
             </div>
           </form>
@@ -66,10 +66,10 @@ const Remuneration = () => {
               CAMISA:
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
-              id="name"
-              aria-describedby="name"
+              id="talla_camisa"
+              aria-describedby="tallaCamisa"
             />
           </div>
           <div className="mb-3">
@@ -77,10 +77,10 @@ const Remuneration = () => {
               PANTALON:
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
-              id="name"
-              aria-describedby="name"
+              id="talla_pantalon"
+              aria-describedby="tallaPantalon"
             />
           </div>
           <div className="mb-3">
@@ -88,10 +88,10 @@ const Remuneration = () => {
               LOGO:
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
-              id="name"
-              aria-describedby="name"
+              id="logo"
+              aria-describedby="logo"
             />
           </div>
           <div className="mb-3">
@@ -99,10 +99,10 @@ const Remuneration = () => {
               CORTAVIENTO:
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
-              id="name"
-              aria-describedby="name"
+              id="talla_cortaviento"
+              aria-describedby="tallaCortaviento"
             />
           </div>
           <div className="mb-3">
@@ -110,10 +110,10 @@ const Remuneration = () => {
               CALZADO:
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
-              id="name"
-              aria-describedby="name"
+              id="numero_calzado"
+              aria-describedby="numeroCalzado"
             />
           </div>
 

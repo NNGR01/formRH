@@ -14,9 +14,9 @@ const Position = () => {
         <div className="row row-cols-2">
           <div className="form-floating mb-3">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="floatingInput"
+              id="nombre_cargo"
               placeholder="name@example.com"
             />
             <label htmlFor="floatingInput">Nombre del Cargo</label>
@@ -25,9 +25,9 @@ const Position = () => {
         <div className="row row-cols-2">
           <div className="form-floating">
             <input
-              type="password"
+              type="date"
               className="form-control col-3"
-              id="floatingPassword"
+              id="fecha_ingreso"
               placeholder="Password"
             />
             <label htmlFor="floatingPassword">Fecha de Ingreso</label>
