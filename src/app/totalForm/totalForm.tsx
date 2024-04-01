@@ -70,7 +70,7 @@ const TotalForm:React.FC<TotalFormProps>= () => {
     nombres: "",
     apellidos: "",
     rut: "",
-   fecha_nacimiento: "",
+    fecha_nacimiento: "",
     nombre_cargo: "",
     fecha_ingreso: "",
     direccion: "",

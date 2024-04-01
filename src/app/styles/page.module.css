@@ -14,7 +14,7 @@
 
 .titleComponent {
   padding-top: 33px;
-  color : black;
+  color: black;
   display: flex;
 }
 
@@ -26,7 +26,6 @@
 .bodyComponent {
   margin-left: 42px;
   color: black;
-  
 }
 
 .formulario {
@@ -59,4 +58,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sectionBody {
+  margin-left: 42px;
+  color: black;
+  display: flex;
+}
+
+.singlePerson {
+  margin-right: 38px;
 }
