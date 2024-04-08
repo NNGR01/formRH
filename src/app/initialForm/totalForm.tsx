@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/page.module.css";
-import TitleLetter from "./titleLetter";
+import TitleLetter from "../components/titleLetter";
 
 interface TotalFormProps {
   nombre_cargo: string,

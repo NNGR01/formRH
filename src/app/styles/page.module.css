@@ -53,19 +53,40 @@
 }
 
 .buttonContainer {
-  margin-left: 42px;
-  height: 123px;
+  width: 97%;
+  height: 83px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  padding-top: 32px;
 }
 
 .sectionBody {
   margin-left: 42px;
   color: black;
   display: flex;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
-.singlePerson {
-  margin-right: 38px;
+.mainBody {
+  background-color: white;
+  min-height: 100vh;
+  text-align: flex-start;
+  padding-left: 23px;
+  padding-right: 23px;
+  color: black;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+
+.buttonBack {
+  padding-top: 12px;
+}
+.title {
+  padding-right: 44px;
 }

@@ -1,21 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/page.module.css";
-import CombinedInput from "./combinedInput";
-import RadioButton from "./radioButton";
-import TextInput from "./textInput";
-import TitleLetter from "./titleLetter";
+import CombinedInput from "../components/combinedInput";
+import RadioButton from "../components/radioButton";
+import TextInput from "../components/textInput";
+import TitleLetter from "../components/titleLetter";
 
-interface TotalFormProps {
-  nombre_cargo: string;
-  fecha_ingreso: string;
-  nombres: string;
-  apellidos: string;
-  rut: string;
-}
 
-const FinalForm: React.FC<TotalFormProps> = () => {
+const FinalForm = () => {
   const [formData, setFormData] = useState({
+    empresa: "",
     nombre_cargo: "",
     fecha_ingreso: "",
     nombres: "",
@@ -95,6 +89,22 @@ const FinalForm: React.FC<TotalFormProps> = () => {
     <div>
       <TitleLetter
         letter="A"
+        title="Empresa"
+      />
+      <div className={styles.bodyComponent}>
+        <div className="col-7">
+          <TextInput
+            label="Nombre Empresa"
+            id="empresa"
+            name="empresa"
+            value={formData.empresa}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
+      <TitleLetter
+        letter="B"
         title="ANTECEDENTES DEL CARGO: (Uso exclusivo Empleador)"
       />
       <div className={styles.bodyComponent}>
@@ -115,7 +125,7 @@ const FinalForm: React.FC<TotalFormProps> = () => {
           />
         </div>
       </div>
-      <TitleLetter letter="B" title="ANTECENDETES PERSONALES DEL TRABAJADOR" />
+      <TitleLetter letter="C" title="ANTECENDETES PERSONALES DEL TRABAJADOR" />
 
       <div className={styles.bodyComponent}>
         <div className="col-7">
@@ -254,7 +264,7 @@ const FinalForm: React.FC<TotalFormProps> = () => {
       </div>
 
       <TitleLetter
-        letter="C"
+        letter="D"
         title="ANTECENDETES DEL CONTRATO: (Uso exclusivo Empleador)"
       />
 
@@ -304,7 +314,7 @@ const FinalForm: React.FC<TotalFormProps> = () => {
         </div>
       </div>
 
-      <TitleLetter letter="D" title="ANTECENDETES PREVISIONALES:" />
+      <TitleLetter letter="E" title="ANTECENDETES PREVISIONALES:" />
 
       <div className={styles.bodyComponent}>
         <div className="row row-cols-12  g-lg-3 col-sm-8">
@@ -353,7 +363,7 @@ const FinalForm: React.FC<TotalFormProps> = () => {
         </div>
       </div>
 
-      <TitleLetter letter="E" title="REMUNERACION: (Uso exclusivo Empleador)" />
+      <TitleLetter letter="F" title="REMUNERACION: (Uso exclusivo Empleador)" />
 
       <div className={styles.remuneration}>
         <div className="col-6">
