@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../page.module.css";
 
-const FormComponent = ({ send }) => {
+const FormComponent = ({ send } : any) => {
 
 
   const [formData, setFormData] = useState({

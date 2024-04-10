@@ -37,6 +37,7 @@ interface Person {
   talla_pantalon: string;
   logo: string;
   numero_calzado: string;
+  estado: string;
 }
 
 const Show2: React.FC = () => {
@@ -149,6 +150,7 @@ const Show2: React.FC = () => {
                 tallaPantalon={persona.talla_pantalon}
                 logo={persona.logo}
                 numeroCalzado={persona.numero_calzado}
+                estado={persona.estado}
               />
             ))
           : data &&
@@ -189,6 +191,7 @@ const Show2: React.FC = () => {
                 tallaPantalon={persona.talla_pantalon}
                 logo={persona.logo}
                 numeroCalzado={persona.numero_calzado}
+                estado={persona.estado}
               />
             ))}
       </div>
