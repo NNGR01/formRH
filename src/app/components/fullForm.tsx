@@ -38,6 +38,7 @@ interface Person {
   tallaPantalon: string;
   logo: string;
   numeroCalzado: string;
+  estado: string;
 }
 
 const FullForm: React.FC<Person> = ({
@@ -75,6 +76,7 @@ const FullForm: React.FC<Person> = ({
   tallaPantalon,
   logo,
   numeroCalzado,
+  estado,
 }) => {
   return (
     <>
@@ -85,18 +87,21 @@ const FullForm: React.FC<Person> = ({
         />
         <div className={styles.sectionBody}>
           <SingleData
+            key="nombreCargo"
             divClass="d-flex col-4"
             pClass="ms-3 text-decoration-underline"
             title="Nombre del Cargo"
             field={nombreCargo}
           />
           <SingleData
+            key="fechaIngreso"
             divClass="d-flex col-4"
             pClass="ms-3 text-decoration-underline"
             title="Fecha de Ingreso"
             field={fechaIngreso}
           />
-             <SingleData
+          <SingleData
+            key="empresa"
             divClass="d-flex col-4"
             pClass="ms-3 text-decoration-underline"
             title="Empresa"
@@ -116,12 +121,14 @@ const FullForm: React.FC<Person> = ({
             field={nombres}
           />
           <SingleData
+            key="apellidos"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Apellidos"
             field={apellidos}
           />
           <SingleData
+            key="rut"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Rut"
@@ -130,18 +137,21 @@ const FullForm: React.FC<Person> = ({
         </div>
         <div className={styles.sectionBody}>
           <SingleData
+            key="fechaNacimiento"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Fecha de Nacimiento"
             field={fechaNacimiento}
           />
           <SingleData
+            key="comuna"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Comuna"
             field={comuna}
           />
           <SingleData
+            key="direccion"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Dirección"
@@ -150,6 +160,7 @@ const FullForm: React.FC<Person> = ({
         </div>
         <div className={styles.sectionBody}>
           <SingleData
+            key="direccion"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Estado Civil"
@@ -157,6 +168,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="telefono"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Teléfono"
@@ -164,6 +176,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="telefonoEmergencia"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Teléfono Emergencia"
@@ -172,18 +185,21 @@ const FullForm: React.FC<Person> = ({
         </div>
         <div className={styles.sectionBody}>
           <SingleData
+            key="mail"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Correo Electrónico"
             field={mail}
           />
           <SingleData
+            key="banco"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Banco"
             field={banco}
           />
           <SingleData
+            key="nacionalidad"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Nacionalidad"
@@ -192,6 +208,7 @@ const FullForm: React.FC<Person> = ({
         </div>
         <div className={styles.sectionBody}>
           <SingleData
+            key="tipoCuentaBanco"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Tipo de Cuenta Bancaria"
@@ -199,6 +216,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="numeroCuentaBanco"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="N° Cuenta Bancariaco"
@@ -211,6 +229,7 @@ const FullForm: React.FC<Person> = ({
         />
         <div className={styles.sectionBody}>
           <SingleData
+            key="primerContratoPlazo"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="1° Contrato Plazo Fijo"
@@ -218,6 +237,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="segundoContratoPlazo"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="2° Contrato Plazo Fijo"
@@ -225,6 +245,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="contratoIndefinido"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Contrato Indefinido"
@@ -233,6 +254,7 @@ const FullForm: React.FC<Person> = ({
         </div>
         <div className={styles.sectionBody}>
           <SingleData
+            key="horarioTrabajo"
             divClass="d-flex col-4"
             pClass="ms-4 text-decoration-underline"
             title="Horario de Trabajo"
@@ -243,6 +265,7 @@ const FullForm: React.FC<Person> = ({
         <TitleLetter letter="D" title="ANTECENDETES PREVISIONALES:" />
         <div className={styles.sectionBody}>
           <SingleData
+            key="afp"
             divClass="d-flex col-3"
             pClass="ms-4 text-decoration-underline"
             title="Nombre AFP"
@@ -250,6 +273,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="salud"
             divClass="d-flex col-3"
             pClass="ms-4 text-decoration-underline"
             title="Sistema de Salud"
@@ -257,6 +281,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="isapre"
             divClass="d-flex col-2"
             pClass="ms-4 text-decoration-underline"
             title="Isapre"
@@ -264,6 +289,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="valorIsapre"
             divClass="d-flex col-2"
             pClass="ms-4 text-decoration-underline"
             title="Valor plan Isapre"
@@ -277,6 +303,7 @@ const FullForm: React.FC<Person> = ({
         />
         <div className={styles.sectionBody}>
           <SingleData
+            key="liquidoPactado"
             divClass="d-flex col-2 me-3"
             title="Líquido Pactado"
             pClass="ms-2 text-decoration-underline"
@@ -284,6 +311,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="bonoColacion"
             divClass="d-flex col-2 me-3"
             title="Bono Colación"
             pClass="ms-2 text-decoration-underline"
@@ -291,6 +319,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="bonoMovilizacion"
             divClass="d-flex col-2 me-3"
             title="Bono Movilización"
             pClass="ms-2 text-decoration-underline"
@@ -298,6 +327,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="otrosBonos"
             divClass="d-flex col-2 me-3"
             title="Otros Bonos"
             pClass="ms-2 text-decoration-underline"
@@ -307,6 +337,7 @@ const FullForm: React.FC<Person> = ({
 
         <div className={styles.sectionBody}>
           <SingleData
+            key="tallaCamisa"
             divClass="d-flex col-2 me-3"
             title="Camisa"
             pClass="ms-2 text-decoration-underline"
@@ -314,6 +345,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="tallaPantalon"
             divClass="d-flex col-2 me-3"
             title="Patalon"
             pClass="ms-2 text-decoration-underline"
@@ -321,6 +353,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="logo"
             divClass="d-flex col-2 me-3"
             title="Logo"
             pClass="ms-2 text-decoration-underline"
@@ -328,6 +361,7 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="tallaCortaviento"
             divClass="d-flex col-2 me-3"
             title="Cortaviento"
             pClass="ms-2 text-decoration-underline"
@@ -335,10 +369,22 @@ const FullForm: React.FC<Person> = ({
           />
 
           <SingleData
+            key="numeroCalzado"
             divClass="d-flex col-2 me-3"
             title="Calzado"
             pClass="ms-2 text-decoration-underline"
             field={numeroCalzado}
+          />
+        </div>
+
+        <TitleLetter letter="F" title="Estado De Aprobación RRHH" />
+        <div className={styles.sectionBody}>
+          <SingleData
+            key="estado"
+            divClass="d-flex col-2 me-3"
+            title="Estado"
+            pClass="ms-2 text-decoration-underline"
+            field={estado}
           />
         </div>
       </div>

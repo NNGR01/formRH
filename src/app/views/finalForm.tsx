@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
+
 import styles from "../styles/page.module.css";
 import CombinedInput from "../components/combinedInput";
 import RadioButton from "../components/radioButton";
 import TextInput from "../components/textInput";
 import TitleLetter from "../components/titleLetter";
-
 
 const FinalForm = () => {
   const [formData, setFormData] = useState({
@@ -42,6 +42,7 @@ const FinalForm = () => {
     talla_pantalon: "",
     logo: "",
     numero_calzado: "",
+    estado: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,7 +78,7 @@ const FinalForm = () => {
       }
 
       const data = await response.json();
-      console.log("Persona agregada exitosamente:", data);
+      window.alert("Persona agregada correctamente");
     } catch (error: any) {
       console.error("Error al agregar la persona:", error.message);
     }
@@ -87,10 +88,7 @@ const FinalForm = () => {
 
   return (
     <div>
-      <TitleLetter
-        letter="A"
-        title="Empresa"
-      />
+      <TitleLetter letter="A" title="Empresa" />
       <div className={styles.bodyComponent}>
         <div className="col-7">
           <TextInput
@@ -449,7 +447,31 @@ const FinalForm = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-center">
+      <TitleLetter letter="G" title="Estado De Aprobación RRHH" />
+
+      <div className={styles.bodyComponent}>
+        <label htmlFor="tipo_cuenta_banco" className="form-label me-3">
+          Marcar estado de ficha
+        </label>
+
+        <RadioButton
+          label="Aprobado"
+          id="Aprobado"
+          name="estado"
+          checked={formData.estado === "Aprobado"}
+          onChange={handleChange}
+        />
+
+        <RadioButton
+          label="Pendiente"
+          id="Pendiente"
+          name="estado"
+          checked={formData.estado === "Pendiente"}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="d-flex justify-content-center pt-5 pb-5">
         <button
           className="btn btn-outline-secondary m-3"
           type="button"

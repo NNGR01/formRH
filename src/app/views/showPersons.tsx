@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "../styles/page.module.css";
 import FullForm from "../components/fullForm";
 
 interface Person {
@@ -38,51 +37,53 @@ interface Person {
   talla_pantalon: string;
   logo: string;
   numero_calzado: string;
+  estado: string;
 }
 
 const ShowPersons: React.FC = () => {
   const [data, setData] = useState<Person[] | null>(null);
   const [filteredData, setFilteredData] = useState<Person[] | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:4000/api/qa/total_persona",
-        {
-          method: "GET",
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const jsonData: Person[] = await response.json(); // Definimos el tipo de jsonData como Person[]
-      setData(jsonData);
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
-  };
+  const [selectFilter, setSelectFilter] = useState<string>("");
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:4000/api/qa/total_persona",
+          {
+            method: "GET",
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const jsonData: Person[] = await response.json(); // Definimos el tipo de jsonData como Person[]
+        setData(jsonData);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
     fetchData();
   }, []);
+
+  /*  ahora */
 
   const handleSearch = () => {
     const filtered =
       data?.filter((persona) =>
-        Object.values(persona).some(
-          (value) =>
+        Object.entries(persona).some(
+          ([key, value]) =>
             typeof value === "string" &&
+            (key === "" || key === selectFilter) &&
             value.toLowerCase().includes(searchTerm.toLowerCase())
         )
       ) || [];
-    console.log(filtered, "resultado de filtro");
-
     setFilteredData(filtered);
   };
 
-  const handleChangeSearchinput = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSearchTerm(e.target.value);
+  const handleChangeSearchInput = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectFilter(e.target.value);
   };
 
   const handleChangeSearchSelct = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,13 +99,14 @@ const ShowPersons: React.FC = () => {
               <li className="nav-item dropdown">
                 <select
                   className="form-select"
-                  onChange={handleChangeSearchinput}
+                  onChange={handleChangeSearchInput}
                 >
                   <option value="">Filtrar</option>
                   <option value="nombre_cargo">Nombre del Cargo</option>
                   <option value="nombres">Nombres</option>
-                  <option value="nombres">Apellido</option>
+                  <option value="apellidos">Apellido</option>
                   <option value="empresa">Empresa</option>
+                  <option value="estado">Estado</option>
                 </select>
               </li>
             </ul>
@@ -135,6 +137,7 @@ const ShowPersons: React.FC = () => {
             <div>
               {filteredData.map((persona) => (
                 <FullForm
+                  key={persona.id_total_persona}
                   id={persona.id_total_persona}
                   nombreCargo={persona.nombre_cargo}
                   fechaIngreso={persona.fecha_ingreso}
@@ -169,6 +172,7 @@ const ShowPersons: React.FC = () => {
                   tallaPantalon={persona.talla_pantalon}
                   logo={persona.logo}
                   numeroCalzado={persona.numero_calzado}
+                  estado={persona.estado}
                 />
               ))}
             </div>
@@ -178,6 +182,7 @@ const ShowPersons: React.FC = () => {
                 <div>
                   {data.map((persona) => (
                     <FullForm
+                      key={persona.id_total_persona}
                       id={persona.id_total_persona}
                       nombreCargo={persona.nombre_cargo}
                       fechaIngreso={persona.fecha_ingreso}
@@ -212,6 +217,7 @@ const ShowPersons: React.FC = () => {
                       tallaPantalon={persona.talla_pantalon}
                       logo={persona.logo}
                       numeroCalzado={persona.numero_calzado}
+                      estado={persona.estado}
                     />
                   ))}
                 </div>
