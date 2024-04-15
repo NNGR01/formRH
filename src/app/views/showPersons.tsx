@@ -50,7 +50,7 @@ const ShowPersons: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/qa/total_persona",
+          "https://nodeexpress-hr1t.onrender.com/api/qa/total_persona",
           {
             method: "GET",
           }
