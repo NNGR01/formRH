@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles/page.module.css";
-import CombinedInput from "../components/combinedInput";
 import RadioButton from "../components/radioButton";
 import TextInput from "../components/textInput";
 import TitleLetter from "../components/titleLetter";
+import DateInput from "../components/dateInput";
+import CombinedDateInput from "../components/combinedDates";
 
 const FinalForm = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const FinalForm = () => {
     talla_pantalon: "",
     logo: "",
     numero_calzado: "",
-    estado: "",
+    estado: "Pendiente",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,21 +85,41 @@ const FinalForm = () => {
     }
   };
 
-  console.log("desde totalForm", formData);
+  const handleCheckboxChange = () => {
+    const newState = formData.estado === "Pendiente" ? "Aprobado" : "Pendiente";
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      estado: newState,
+    }));
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      estado: newState,
+    }));
+  };
+
+  console.log("formData", formData);
 
   return (
     <div>
       <TitleLetter letter="A" title="Empresa" />
       <div className={styles.bodyComponent}>
-        <div className="col-7">
-          <TextInput
-            label="Nombre Empresa"
-            id="empresa"
-            name="empresa"
-            value={formData.empresa}
-            onChange={handleChange}
-          />
-        </div>
+        <label htmlFor="empresa" className="form-label me-3">
+          Nombre Empresa
+        </label>
+        <RadioButton
+          label="Geo Parking"
+          id="Geo Parking"
+          name="empresa"
+          checked={formData.empresa === "Geo Parking"}
+          onChange={handleChange}
+        />
+        <RadioButton
+          label="Easy Parking"
+          id="Easy Parking"
+          name="empresa"
+          checked={formData.empresa === "Easy Parking"}
+          onChange={handleChange}
+        />
       </div>
 
       <TitleLetter
@@ -107,19 +128,43 @@ const FinalForm = () => {
       />
       <div className={styles.bodyComponent}>
         <div className="col-7">
-          <TextInput
-            label="Nombre del Cargo"
-            id="nombre_cargo"
+          <label htmlFor="empresa" className="form-label me-3">
+            Nombre del Cargo
+          </label>
+          <RadioButton
+            label="Operador"
+            id="Operador"
             name="nombre_cargo"
-            value={formData.nombre_cargo}
+            checked={formData.nombre_cargo === "Operador"}
             onChange={handleChange}
           />
-          <TextInput
-            label="Fecha de Ingreso"
-            id="fecha_ingreso"
-            name="fecha_ingreso"
-            value={formData.fecha_ingreso}
+          <RadioButton
+            label="Supervisor"
+            id="Supervisor"
+            name="nombre_cargo"
+            checked={formData.nombre_cargo === "Supervisor"}
             onChange={handleChange}
+          />
+          <RadioButton
+            label="Administrativo"
+            id="Administrativo"
+            name="nombre_cargo"
+            checked={formData.nombre_cargo === "Administrativo"}
+            onChange={handleChange}
+          />
+          <RadioButton
+            label="Otro"
+            id="Otro"
+            name="nombre_cargo"
+            checked={formData.nombre_cargo === "Otro"}
+            onChange={handleChange}
+          />
+
+          <DateInput
+            label="Fecha de Ingreso"
+            onChange={(date: string) =>
+              handleFieldChange("fecha_ingreso", date)
+            }
           />
         </div>
       </div>
@@ -151,12 +196,11 @@ const FinalForm = () => {
             onChange={handleChange}
           />
 
-          <TextInput
+          <DateInput
             label="Fecha de Nacimiento"
-            id="fecha_nacimiento"
-            name="fecha_nacimiento"
-            value={formData.fecha_nacimiento}
-            onChange={handleChange}
+            onChange={(date: string) =>
+              handleFieldChange("fecha_nacimiento", date)
+            }
           />
 
           <TextInput
@@ -269,34 +313,26 @@ const FinalForm = () => {
       <div className={styles.bodyComponent}>
         <div className="row g-lg-3 col-sm-8">
           <h6>Tipo de Contrato</h6>
-          <CombinedInput
+
+          <CombinedDateInput
             label="1° Contrato Plazo Fijo"
-            placeholder1="Desde"
-            placeholder2="Hasta"
-            onChange={(value: any) =>
-              handleFieldChange("primer_contrato_plazo", value)
+            onChange={(date: string) =>
+              handleFieldChange("primer_contrato_plazo", date)
             }
           />
-          <CombinedInput
+          <CombinedDateInput
             label="2° Contrato Plazo Fijo"
-            placeholder1="Desde"
-            placeholder2="Hasta"
-            onChange={(value: any) =>
-              handleFieldChange("segundo_contrato_plazo", value)
+            onChange={(date: string) =>
+              handleFieldChange("segundo_contrato_plazo", date)
             }
           />
-          <div className="input-group">
-            <span className="input-group-text">Contrato Indefinido</span>
-            <input
-              type="text"
-              aria-label="First name"
-              className="form-control"
-              placeholder="Desde"
-              id="contrato_indefinido"
-              name="contrato_indefinido"
-              onChange={handleChange}
-            />
-          </div>
+
+          <DateInput
+            label="Contrato indefinido"
+            onChange={(date: string) =>
+              handleFieldChange("contrato_indefinido", date)
+            }
+          />
 
           <div className="input-group">
             <span className="input-group-text">Horario de Trabajo</span>
@@ -454,21 +490,19 @@ const FinalForm = () => {
           Marcar estado de ficha
         </label>
 
-        <RadioButton
-          label="Aprobado"
-          id="Aprobado"
-          name="estado"
-          checked={formData.estado === "Aprobado"}
-          onChange={handleChange}
-        />
-
-        <RadioButton
-          label="Pendiente"
-          id="Pendiente"
-          name="estado"
-          checked={formData.estado === "Pendiente"}
-          onChange={handleChange}
-        />
+        <div className="form-check form-switch">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            onChange={handleCheckboxChange}
+            checked={formData.estado === "Aprobado"}
+          />
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+            {formData.estado}
+          </label>
+        </div>
       </div>
 
       <div className="d-flex justify-content-center pt-5 pb-5">
