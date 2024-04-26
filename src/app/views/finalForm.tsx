@@ -192,7 +192,7 @@ const FinalForm = () => {
             value={formData.apellidos}
             onChange={handleChange}
           />
-
+          
           <RutComp
             label="Rut"
             id="rut"
