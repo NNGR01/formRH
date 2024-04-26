@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ShowPersons from "./views/showPersons";
 import styles from "./styles/page.module.css";
 import FinalForm from "./views/finalForm";
 import Link from "next/link";
