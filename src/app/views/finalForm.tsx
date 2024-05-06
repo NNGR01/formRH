@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles/page.module.css";
-import RadioButton from "../components/radioButton";
+import CombinedDateInput from "../components/combinedDates";
+import DateInput from "../components/dateInput";
 import TextInput from "../components/textInput";
 import TitleLetter from "../components/titleLetter";
-import DateInput from "../components/dateInput";
-import CombinedDateInput from "../components/combinedDates";
+import RadioButton from "../components/radioButton";
 import RutComp from "../components/rutComp";
 
 const FinalForm = () => {
