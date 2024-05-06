@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles/page.module.css";
-import RadioButton from "../components/radioButton";
+import CombinedDateInput from "../components/combinedDates";
+import DateInput from "../components/dateInput";
 import TextInput from "../components/textInput";
 import TitleLetter from "../components/titleLetter";
-import DateInput from "../components/dateInput";
-import CombinedDateInput from "../components/combinedDates";
+import RadioButton from "../components/radioButton";
+import RutComp from "../components/rutComp";
 
 const FinalForm = () => {
   const [formData, setFormData] = useState({
-    empresa: "",
+    empresa: "Easy Parking",
     nombre_cargo: "",
     fecha_ingreso: "",
     nombres: "",
@@ -65,7 +66,7 @@ const FinalForm = () => {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        "http://localhost:4000/api/qa/total_persona",
+        "http://107.180.90.78:4001/api/qa/total_persona",
         {
           method: "POST",
           headers: {
@@ -106,13 +107,16 @@ const FinalForm = () => {
         <label htmlFor="empresa" className="form-label me-3">
           Nombre Empresa
         </label>
-        <RadioButton
+        <div className="form-check form-check-inline">
+          <h6>Easy Parking</h6>
+        </div>
+        {/*         <RadioButton
           label="Geo Parking"
           id="Geo Parking"
           name="empresa"
           checked={formData.empresa === "Geo Parking"}
           onChange={handleChange}
-        />
+        /> 
         <RadioButton
           label="Easy Parking"
           id="Easy Parking"
@@ -120,6 +124,7 @@ const FinalForm = () => {
           checked={formData.empresa === "Easy Parking"}
           onChange={handleChange}
         />
+        */}
       </div>
 
       <TitleLetter
@@ -187,8 +192,8 @@ const FinalForm = () => {
             value={formData.apellidos}
             onChange={handleChange}
           />
-
-          <TextInput
+          
+          <RutComp
             label="Rut"
             id="rut"
             name="rut"
