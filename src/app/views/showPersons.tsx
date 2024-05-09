@@ -50,7 +50,7 @@ const ShowPersons: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://107.180.90.78:4001/api/qa/total_persona",
+          "https://node-mysql-ochre.vercel.app",
           {
             method: "GET",
           }
